@@ -52,7 +52,7 @@ $(function() {
     */
     describe('The menu', function() {
         it('The menu is hidden by default', function() {
-            expect(document.body.classList).toContain('menu-hidden');
+            expect($('body').hasClass('menu-hidden')).toBe(true);
         });
 
         /* 
@@ -63,12 +63,11 @@ $(function() {
 
         it('visibility when the menu icon is clicked, hidden after clicked again', function() {
             $('.menu-icon-link').click();
-            expect(document.body.classList).not.toContain('menu-hidden');
+            expect($('body').hasClass('menu-hidden')).toBe(false);
             $('.menu-icon-link').click();
-            expect(document.body.classList).toContain('menu-hidden');
+            expect($('body').hasClass('menu-hidden')).toBe(true);
         });
     });
-
          
 
     /* 13. 写一个叫做 "Initial Entries" 的测试用例 */
@@ -88,7 +87,7 @@ $(function() {
         });
          
         it('At least one .entry element within the .feed container', function() {
-            expect($('.entry').length).not.toBe(0);
+            expect($('.feed .entry').length).not.toBe(0);
         });
     });
         
